@@ -2,9 +2,9 @@
 All examples are created using ![Godot Engine](https://github.com/godotengine/godot) v2.1.4.stable
 This repository is dedicated to introducing geometry in game developement. For this reason some well known methods of mathematic libraty of the Godot Engine can be reimplemented in GDScript for purpose of education.
 
-Objective of each example is to illustrate how selected geometry topics can be implemented and used in games.
-
 ## Examples:
+Objective of each example is to illustrate how selected geometry topics can be implemented and used in games.
+Each example have 2 versions: <b>start</b> with framework for implementation and <b> final</b> containing actual implementation.   
 
 ### 2D_stering
 Introduction to vectors.
