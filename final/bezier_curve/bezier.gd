@@ -4,7 +4,6 @@ extends Node2D
 var selectionDistance = 10
 var pressed           = false
 var selection         = null
-var offset            = Vector2()
 
 var points = []
 var STEPS  = 200
@@ -18,7 +17,7 @@ func _ready():
 func _fixed_process(delta):
 	show_t += 1
 	show_t %= STEPS
-	update()    # re-draws canvas by calling _draw() function
+	update()    # re-draw canvas by calling _draw() function
 
 func _input(event):
 	if event.type == InputEvent.MOUSE_MOTION:
@@ -48,7 +47,7 @@ func _draw():
 	draw_bezier_2()
 	draw_bezier_3()
 
-	if selection != null:
+	if selection != null:  # draw selected point
 		draw_circle( selection.get_pos(), 20, Color( 1, 1, 1, 0.3 ) )
 
 func get_bezier_1(step, A, B ):
@@ -81,7 +80,7 @@ func draw_bezier_2():
 	var point = Vector2()
 	for step in range( STEPS + 1 ):
 		point = get_bezier_2( step, A, B, C )
-		points.push_back(point)
+		points.push_back( point )
 
 	for p in range( STEPS ):
 		draw_line( points[p], points[p+1], Color( 1, 1, 0 ), 1 )
