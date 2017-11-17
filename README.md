@@ -20,7 +20,7 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 ## Acknowledgement
 Examples and fragments of code are inspired by work of Godot community members. Especially:
 
-[Nathan Lovato](https://github.com/NathanLovato) and his [GDquest](http://gdquest.com/), 
+[Nathan Lovato](https://github.com/NathanLovato) and his [GDquest](http://gdquest.com/)
 
 [Andreas Esau](https://github.com/ndee85) with his [gBot tutorial](https://www.youtube.com/watch?v=WU6MqaodFyw&list=PLPI26-KXCXpBtZGRJizz0cvU88nXB-G14)
 
