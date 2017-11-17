@@ -1,0 +1,280 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://equations.png" type="Texture" id=1]
+[ext_resource path="res://bezier.gd" type="Script" id=2]
+
+[node name="root" type="Node"]
+
+__meta__ = {
+"__editor_plugin_screen__": "Script",
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="bezier" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point1" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 100, 150 )
+
+[node name="A" type="Label" parent="bezier/Point1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "A"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point2" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 500, 150 )
+
+[node name="B" type="Label" parent="bezier/Point2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "B"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point3" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 700, 300 )
+
+[node name="A" type="Label" parent="bezier/Point3"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "A"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point4" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 980, 150 )
+
+[node name="B" type="Label" parent="bezier/Point4"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "B"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point5" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1270, 300 )
+
+[node name="C" type="Label" parent="bezier/Point5"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "C"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point6" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1400, 150 )
+
+[node name="A" type="Label" parent="bezier/Point6"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "A"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point7" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1400, 300 )
+
+[node name="Ac" type="Label" parent="bezier/Point7"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "Ac"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point8" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1600, 300 )
+
+[node name="Bc" type="Label" parent="bezier/Point8"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "Bc"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point9" type="Node2D" parent="bezier"]
+
+editor/display_folded = true
+transform/pos = Vector2( 1600, 150 )
+
+[node name="B1" type="Label" parent="bezier/Point9"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -5.0
+margin/top = -25.0
+margin/right = 35.0
+margin/bottom = -11.0
+text = "B"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label_t" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 260.0
+margin/top = 30.0
+margin/right = 270.0
+margin/bottom = 44.0
+text = "t"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_t0" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 85.0
+margin/top = 49.0
+margin/right = 95.0
+margin/bottom = 63.0
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_t1" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 305.0
+margin/top = 49.0
+margin/right = 315.0
+margin/bottom = 63.0
+text = "1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
