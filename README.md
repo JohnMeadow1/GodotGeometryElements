@@ -12,7 +12,7 @@ Introduction to vectors.
 ### projections
 Implementation of projections. Calculation of object spatial relation.
 
-### bezier_curve 
+### [bezier_curve ](/final/bezier_curve)
 Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ![bezier](/assets/examples_animations/bezier.gif)
