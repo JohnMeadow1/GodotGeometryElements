@@ -1,5 +1,5 @@
 # GodotGeometryElements
-All examples created using [GODOT] (https://github.com/godotengine/godot). v2.1.4.stable
+All examples created using ![GODOT] (https://github.com/godotengine/godot). v2.1.4.stable
 This repository is dedicated to geometry elements in game developement. 
 Objective of each example is to illustrate how selected geometry topics can be implemented.
 
