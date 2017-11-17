@@ -4,8 +4,14 @@ This repository is dedicated to geometry elements in game developement.
 Objective of each example is to illustrate how selected geometry topics can be implemented.
 
 ## Examples:
-  1. 2D_stering - introduction to vectors
-  2. projections - projecting vector to another vector determining object relations.
-  3. bezier_curve - implementation of interactive Bézier curves (linear, quadric, cubic)
-  
-  ![bezier](/assets/examples_animations/bezier.gif)
+
+### 2D_stering
+Introduction to vectors.
+
+### projections
+Implementation of projections. Calculation of object spatial relation.
+
+### bezier_curve 
+Implementation of interactive Bézier curves: linear, quadric and cubic.
+
+![bezier](/assets/examples_animations/bezier.gif)
