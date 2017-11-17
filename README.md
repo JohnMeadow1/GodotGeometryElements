@@ -22,6 +22,6 @@ Examples and fragments of code are inspired by work of Godot community members. 
 
 [Nathan Lovato](https://github.com/NathanLovato) and his [GDquest](http://gdquest.com/), 
 
-[Andreas Esau](https://github.com/ndee85) with his [gBot tutorial](https://www.youtube.com/watch?v=WU6MqaodFyw&list=PLPI26-KXCXpBtZGRJizz0cvU88nXB-G14) examples
+[Andreas Esau](https://github.com/ndee85) with his [gBot tutorial](https://www.youtube.com/watch?v=WU6MqaodFyw&list=PLPI26-KXCXpBtZGRJizz0cvU88nXB-G14)
 
-[Ivan Skodje](https://github.com/ivanskodje) for his [Godot Videos](https://www.youtube.com/channel/UCBHuFCVtZ9vVPkL2VxVHU8A)
+[Ivan Skodje](https://github.com/ivanskodje) for his [Godot videos](https://www.youtube.com/channel/UCBHuFCVtZ9vVPkL2VxVHU8A)
