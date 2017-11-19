@@ -6,8 +6,10 @@ This repository is dedicated to introducing geometry in game development. For th
 Objective of each example is to illustrate how selected geometry topics can be implemented and used in games.
 Each example have 2 versions: <b>start</b> with framework for implementation and <b> final</b> containing actual implementation.   
 
-### 2D_stering
+### [2d_steering](/final/2d_steering)
 Introduction to vectors.
+
+![2d_steering](/assets/examples_animations/2d_steering.gif)
 
 ### projections
 Implementation of projections. Calculation of object spatial relation.
