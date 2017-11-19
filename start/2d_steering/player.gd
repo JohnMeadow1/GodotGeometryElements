@@ -13,7 +13,7 @@ var btn_left    = null
 var btn_right   = null
 
 var position             = get_pos()
-var velocity             = Vector2( 3.0, 0.0 )
+var velocity             = Vector2( 0.0, 0.0 )
 var thrust               = 0
 
 var angular_velocity     = 0
@@ -22,31 +22,11 @@ var angular_acceleration = 0.005
 var orientation          = 0
 var facing               = Vector2( 0.0, 0.0 )
 
-var gravity              = 0
-var gravity_vector       = Vector2( 0.0, 0.0 )
-var mass                 = 1000
-
-var vector_to_asteroid   = Vector2( 0.0, 0.0 )
-onready var asteroid     = get_node("../Asteroid")
-
 func _ready():
 	set_fixed_process( true )
 
 func _fixed_process(delta):
 	process_input()
-	vector_to_asteroid = asteroid.get_pos() - position
-	
-	angular_velocity = angular_velocity * 0.92
-	orientation      = orientation + angular_velocity
-	facing           = Vector2( cos( orientation ), - sin( orientation ) )
-
-	# enable friction and dissable gravity for normal steering
-#	velocity         = velocity * 0.98
-	gravity          = mass / ( max( vector_to_asteroid.length_squared(), 5000 ) )
-	
-	gravity_vector   = vector_to_asteroid.normalized() * gravity
-	velocity        += facing * thrust + gravity_vector
-	position         = position + velocity
 
 	get_node("Sprite").set_rot( orientation )
 	set_pos( position )
@@ -60,21 +40,17 @@ func process_input():
 
 	thrust = 0
 	if( btn_up   > 1 ):
-		thrust = 0.15
+		pass
 	if( btn_down > 1 ):
-		thrust = -0.15
+		pass
 
 	if( btn_left  > 1 ):
-		angular_velocity += angular_acceleration
+		pass
 	if( btn_right > 1 ):
-		angular_velocity -= angular_acceleration
+		pass
 
 func _draw():
-	# actual vectors length is usually to short in order to draw them properly 
-	draw_vector_from_spaceship( velocity * 20        , Color( 1.0 ,1.0 ,0.0, 0.5 ), 5 )
-	draw_vector_from_spaceship( gravity_vector * 300 , Color( 0.0, 1.0, 0.0, 0.5 ), 5 )
-	draw_vector_from_spaceship( facing * 50          , Color( 1.0 ,1.0 ,1.0, 0.5 ), 3 )
-	draw_vector_from_spaceship( facing * thrust * 500, Color( 0.0, 1.0, 0.0, 0.5 ), 5 )
+	pass
 
 func draw_vector_from_spaceship( vector, color, arrow_size ):
 	if vector.length_squared() > 1:
