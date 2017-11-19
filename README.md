@@ -21,7 +21,7 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ![bezier](/assets/examples_animations/bezier.gif)
 
-### vector field
+### vector_field
 
 ### targeting_solution
 
