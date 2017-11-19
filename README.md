@@ -7,7 +7,7 @@ Objective of each example is to illustrate how selected geometry topics can be i
 Each example have 2 versions: <b>start</b> with framework for implementation and <b> final</b> containing actual implementation.   
 
 ### [2d_steering](/final/2d_steering)
-Introduction to vectors.
+Introduction to vector manipulation by implementing basic 2d spacecraft steering using simplified Newtonian physics.
 
 ![2d_steering](/assets/examples_animations/2d_steering.gif)
 
