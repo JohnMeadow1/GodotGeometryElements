@@ -12,13 +12,13 @@ Introduction to vectors.
 ### projections
 Implementation of projections. Calculation of object spatial relation.
 
-### [bezier_curve ](/final/bezier_curve)
+### [bezier_curve](/final/bezier_curve)
 Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ![bezier](/assets/examples_animations/bezier.gif)
 
 ## Acknowledgement
-Some examples and fragments of code are inspired by work of Godot community members. Especially:
+Some examples and code fragments are borowed or inspired by work of Godot community members. Especially:
 
 [Nathan Lovato](https://github.com/NathanLovato) and his [GDquest](http://gdquest.com/)
 
