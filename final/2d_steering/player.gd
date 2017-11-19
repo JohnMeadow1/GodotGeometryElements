@@ -1,9 +1,7 @@
 extends Node2D
 
-### import the input helper class
 var input_states = preload("input_states.gd")
 
-### create input states classes
 var state_up    = input_states.new("up")
 var state_down  = input_states.new("down")
 var state_left  = input_states.new("left")
@@ -41,11 +39,12 @@ func _fixed_process(delta):
 	
 	angular_velocity = angular_velocity * 0.92
 	orientation      = orientation + angular_velocity
-	facing           = Vector2( cos(orientation) , -sin(orientation) )
+	facing           = Vector2( cos( orientation ), - sin( orientation ) )
 
-	# dissable friction, enable gravity
-	velocity         = velocity * 0.98
-#	gravity          = mass / ( max( vector_to_asteroid.length_squared(), 5000 ) )
+	# enable friction and dissable gravity for normal steering
+#	velocity         = velocity * 0.98
+	gravity          = mass / ( max( vector_to_asteroid.length_squared(), 5000 ) )
+	
 	gravity_vector   = vector_to_asteroid.normalized() * gravity
 	velocity        += facing * thrust + gravity_vector
 	position         = position + velocity
