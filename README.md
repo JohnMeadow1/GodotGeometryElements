@@ -21,6 +21,11 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ![bezier](/assets/examples_animations/bezier.gif)
 
+### vector field
+
+### targeting_solution
+
+
 ## Acknowledgement
 Some examples and code fragments are borrowed or inspired by work of Godot community members. Especially:
 
