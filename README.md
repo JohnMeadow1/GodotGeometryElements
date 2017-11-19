@@ -11,8 +11,10 @@ Introduction to vector manipulation by implementing basic 2d spacecraft steering
 
 ![2d_steering](/assets/examples_animations/2d_steering.gif)
 
-### projections
+### [projections](/final/projections)
 Implementation of projections. Calculation of object spatial relation.
+
+![projections](/assets/examples_animations/projections.gif)
 
 ### [bezier_curve](/final/bezier_curve)
 Implementation of interactive Bézier curves: linear, quadric and cubic.
@@ -20,7 +22,7 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 ![bezier](/assets/examples_animations/bezier.gif)
 
 ## Acknowledgement
-Some examples and code fragments are borowed or inspired by work of Godot community members. Especially:
+Some examples and code fragments are borrowed or inspired by work of Godot community members. Especially:
 
 [Nathan Lovato](https://github.com/NathanLovato) and his [GDquest](http://gdquest.com/)
 

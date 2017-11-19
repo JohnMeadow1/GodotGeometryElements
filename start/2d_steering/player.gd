@@ -25,7 +25,7 @@ var facing               = Vector2( 0.0, 0.0 )
 func _ready():
 	set_fixed_process( true )
 
-func _fixed_process(delta):
+func _fixed_process( delta ):
 	process_input()
 
 	get_node("Sprite").set_rot( orientation )
@@ -39,14 +39,14 @@ func process_input():
 	btn_right = state_right.check()
 
 	thrust = 0
-	if( btn_up   > 1 ):
+	if btn_up   > 1:
 		pass
-	if( btn_down > 1 ):
+	if btn_down > 1:
 		pass
 
-	if( btn_left  > 1 ):
+	if btn_left  > 1:
 		pass
-	if( btn_right > 1 ):
+	if btn_right > 1:
 		pass
 
 func _draw():

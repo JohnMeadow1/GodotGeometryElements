@@ -22,7 +22,7 @@ var angular_acceleration = 0.005
 var orientation          = 0
 var facing               = Vector2( 0.0, 0.0 )
 
-var gravity              = 0
+var gravity_force        = 0
 var gravity_vector       = Vector2( 0.0, 0.0 )
 var mass                 = 1000
 
@@ -32,7 +32,7 @@ onready var asteroid     = get_node("../Asteroid")
 func _ready():
 	set_fixed_process( true )
 
-func _fixed_process(delta):
+func _fixed_process( delta ):
 	process_input()
 	vector_to_asteroid = asteroid.get_pos() - position
 	
@@ -40,11 +40,11 @@ func _fixed_process(delta):
 	orientation      = orientation + angular_velocity
 	facing           = Vector2( cos( orientation ), - sin( orientation ) )
 
-	# enable friction and dissable gravity for normal steering
+	# enable friction and dissable gravity_force for normal steering
 #	velocity         = velocity * 0.98
-	gravity          = mass / ( max( vector_to_asteroid.length_squared(), 5000 ) )
+	gravity_force    = mass / ( max( vector_to_asteroid.length_squared(), 5000 ) )
 	
-	gravity_vector   = vector_to_asteroid.normalized() * gravity
+	gravity_vector   = vector_to_asteroid.normalized() * gravity_force
 	velocity        += facing * thrust + gravity_vector
 	position         = position + velocity
 
@@ -59,14 +59,14 @@ func process_input():
 	btn_right = state_right.check()
 
 	thrust = 0
-	if( btn_up   > 1 ):
+	if btn_up   > 1:
 		thrust = 0.15
-	if( btn_down > 1 ):
+	if btn_down > 1:
 		thrust = -0.15
 
-	if( btn_left  > 1 ):
+	if btn_left  > 1:
 		angular_velocity += angular_acceleration
-	if( btn_right > 1 ):
+	if btn_right > 1:
 		angular_velocity -= angular_acceleration
 
 func _draw():
