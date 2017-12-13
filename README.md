@@ -25,6 +25,10 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ### targeting_solution
 
+### [ray_triangle_intersection](/final/ray_triangle_intersection)
+Implementation of basic ray tracing based on ray triangle intersection.
+
+![ray_triangle_intersection](/assets/examples_animations/ray_triangle_intersection.gif)
 
 ## Acknowledgement
 Some examples and code fragments are borrowed or inspired by work of Godot community members. Especially:
