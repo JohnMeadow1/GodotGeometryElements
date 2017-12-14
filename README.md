@@ -23,7 +23,12 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ### vector_field
 
-### targeting_solution
+### [targeting_solution](/final/targeting)
+Implementation of 2 approaches for aiming:
+#### Aim approximation used by manoeuvring rockets
+#### Predictive aim based on quartic equation solution applied to projectiles with constant speed
+
+![targeting](/assets/examples_animations/targeting.gif)
 
 ### [ray_triangle_intersection](/final/ray_triangle_intersection)
 Implementation of basic ray tracing based on ray triangle intersection.
@@ -31,7 +36,7 @@ Implementation of basic ray tracing based on ray triangle intersection.
 ![ray_triangle_intersection](/assets/examples_animations/ray_triangle_intersection.gif)
 
 ## Acknowledgement
-Some examples and code fragments are borrowed or inspired by work of Godot community members. Especially:
+Some examples and code fragments are borrowed or inspired by work of Godot Engine community members. Especially:
 
 [Nathan Lovato](https://github.com/NathanLovato) and his [GDquest](http://gdquest.com/)
 
