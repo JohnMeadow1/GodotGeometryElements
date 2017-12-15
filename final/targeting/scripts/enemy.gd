@@ -1,8 +1,8 @@
 extends Node2D
 
-var player = null
-var bullet = null
-var rocket = null
+onready var player = get_node( "../Spaceship" )
+var bullet = preload("res://scenes/bullet.tscn")
+var rocket = preload( "res://scenes/rocket.tscn" )
 
 var vector_to_player = Vector2()
 var orientation      = 90
@@ -18,9 +18,18 @@ var target_heading   = 0
 var target_solution  = false
 var predictive_aim   = Vector2()
 
+func _ready():
+	set_fixed_process( true )
+
 func _fixed_process( delta ):
 	vector_to_player = player.get_pos() - get_pos()
 
+	follow_player()
+	calculate_targeting_solution( self, player, 10 )
+	display_aiming()
+	use_weapons(delta)
+
+func follow_player():
 	velocity *= 0.96
 	if vector_to_player.length() > 400:
 		velocity += vector_to_player.normalized() * ( vector_to_player.length() - 400 ) / 30
@@ -29,9 +38,30 @@ func _fixed_process( delta ):
 	orientation = atan2( -vector_to_player.y, vector_to_player.x)
 	facing      = Vector2 ( cos( orientation ), -sin( orientation ) )
 	get_node("Sprite").set_rot( orientation )
-	
-	get_targeting_solution( self, player, 10 )
-	
+
+func calculate_targeting_solution( origin, target, projectileVelocity ):
+	target_solution      = false
+	vector_to_player     = target.get_pos() - origin.get_pos()
+	var relativeVelocity = target.velocity  - origin.velocity
+
+	var a = relativeVelocity.length_squared() - pow( projectileVelocity, 2 )
+	var b = 2.0 * relativeVelocity.dot( vector_to_player )
+	var c = vector_to_player.length_squared()
+	var discriminant = b * b - 4.0 * a * c
+	if discriminant >= 0: # if discriminant <0 then complex numbers and that is not ok
+		var distance = sqrt( discriminant )
+		var time_1   = ( -b - distance ) / ( 2.0 * a )
+		var time_2   = ( -b + distance ) / ( 2.0 * a )
+
+		if time_1 < 0.0 || (time_2 < time_1 && time_2 >= 0.0):
+			time_1 = time_2
+
+		if time_1 >= 0.0: # Compute target_solution heading
+			predictive_aim  = vector_to_player + relativeVelocity * time_1
+			target_heading  = atan2( -predictive_aim.y, predictive_aim.x )
+			target_solution = true
+
+func display_aiming():
 	if target_solution:
 		get_node("aim").set_pos( predictive_aim )
 		get_node("aim").set_hidden( false )
@@ -39,6 +69,7 @@ func _fixed_process( delta ):
 	else:
 		get_node("aim").set_hidden( true )
 
+func use_weapons( delta ):
 	laser_timer  += delta
 	if laser_timer >= laser_delay:
 		if laser_timer >= 3:
@@ -67,34 +98,6 @@ func create_rocket():
 	new_rocket.orientation = orientation
 	get_node("../rockets").add_child( new_rocket )
 	new_rocket.set_pos( get_pos() )
-
-func _ready():
-	bullet = load("res://scenes/bullet.tscn")
-	rocket = load( "res://scenes/rocket.tscn" )
-	player = get_node( "../Spaceship" )
-	set_fixed_process( true )
-
-func get_targeting_solution( origin, target, projectileVelocity ):
-	target_solution      = false
-	vector_to_player     = target.get_pos() - origin.get_pos()
-	var relativeVelocity = target.velocity  - origin.velocity
-
-	var a = relativeVelocity.length_squared() - pow( projectileVelocity, 2 )
-	var b = 2.0 * relativeVelocity.dot( vector_to_player )
-	var c = vector_to_player.length_squared()
-	var discriminant = b * b - 4.0 * a * c
-	if discriminant >= 0: # if discriminant <0 then complex numbers and that is not ok
-		var distance = sqrt( discriminant )
-		var time_1   = ( -b - distance ) / ( 2.0 * a )
-		var time_2   = ( -b + distance ) / ( 2.0 * a )
-
-		if time_1 < 0.0 || (time_2 < time_1 && time_2 >= 0.0):
-			time_1 = time_2
-
-		if time_1 >= 0.0: # Compute target_solution heading
-			predictive_aim  = vector_to_player + relativeVelocity * time_1
-			target_heading  = atan2( -predictive_aim.y, predictive_aim.x )
-			target_solution = true
 
 func _draw():
 	if target_solution:

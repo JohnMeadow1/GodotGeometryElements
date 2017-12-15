@@ -54,28 +54,8 @@ func _ready():
 func _fixed_process( delta ):
 	process_input( delta )
 	get_node("ProgressBar").set_value(hp)
-
-	if hp<100:
-		hp += 0.1
-	if hp <= 0:
-		get_tree().quit()
-
-	vector_to_asteroid   = asteroid.get_pos() - position
-	distance_to_asteroid = min( vector_to_asteroid.length(), 500 )
-
-	projection = get_projection(    facing, vector_to_asteroid )
-	dot        = get_dot_product(   facing, vector_to_asteroid )
-	cross      = get_cross_product( facing, vector_to_asteroid )
-
-	collision_vector   = projection - vector_to_asteroid
-	collision_distance = collision_vector.length()
-
-	# avoid asteroid collision
-	if dot > 0 && collision_distance < 60 && distance_to_asteroid < 400:
-		# simple solution
-#		angular_velocity += cross * 0.00003
-		# not so simple solution
-		angular_velocity += sign( cross ) * ( 60 - abs( cross ) ) * 0.0001 * ( 400 - distance_to_asteroid ) / 400
+	check_payer_destroyed()
+	avoid_asteroid()
 
 	angular_velocity = angular_velocity * 0.91
 	orientation      = orientation + angular_velocity
@@ -87,7 +67,7 @@ func _fixed_process( delta ):
 	else:
 		velocity       = velocity * 0.94
 
-	velocity += (facing * thrust) + gravity_vector
+	velocity += facing * thrust + gravity_vector
 	position = position + velocity
 
 	get_node("Sprite_ship").set_rot(orientation)
@@ -124,6 +104,28 @@ func process_input( delta ):
 	elif fire_timer < 0.2:
 		fire_timer += delta
 
+func check_payer_destroyed():
+	get_node("ProgressBar").set_value(hp)
+	if hp < 100:
+		hp += 0.1
+	if hp <= 0:
+		get_tree().quit()
+
+func avoid_asteroid():
+	vector_to_asteroid   = asteroid.get_pos() - position
+	distance_to_asteroid = min( vector_to_asteroid.length(), 500 )
+	projection = get_projection(    facing, vector_to_asteroid )
+	dot        = get_dot_product(   facing, vector_to_asteroid )
+	cross      = get_cross_product( facing, vector_to_asteroid )
+	collision_vector   = projection - vector_to_asteroid
+	collision_distance = collision_vector.length()
+	# avoid asteroid collision
+	if dot > 0 && collision_distance < 60 && distance_to_asteroid < 400:
+		# simple solution
+#		angular_velocity += cross * 0.00003
+		# not so simple solution
+		angular_velocity += sign( cross ) * ( 60 - abs( cross ) ) * 0.0001 * ( 400 - distance_to_asteroid ) / 400
+
 func create_bullet():
 	for i in range(2):
 		var new_bullet = bullet.instance()
@@ -131,6 +133,9 @@ func create_bullet():
 		new_bullet.set_rot( orientation )
 		new_bullet.velocity = (facing + Vector2(rand_range(-0.05,0.05),rand_range(-0.05,0.05))) * 20
 		get_node("../bullets").add_child( new_bullet )
+
+func explosion():
+	get_node("Explosion/AnimationPlayer").play("boom")
 
 func get_dot_product( V, W ):
 	# this method re-implements in engine method: Vector2().dot(Vector2()) for teaching purposes
@@ -165,6 +170,3 @@ func draw_vector( origin, vector, color, arrow_size ):
 		points.push_back( vector + direction.rotated( -PI / 2 ) * arrow_size )
 		draw_polygon( Vector2Array( points ), ColorArray( [color] ) )
 		draw_line( origin, vector, color, arrow_size )
-
-func boom():
-	get_node("Explosion/AnimationPlayer").play("boom")
