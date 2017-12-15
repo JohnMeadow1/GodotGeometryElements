@@ -5,7 +5,7 @@
 [resource]
 
 flags/visible = true
-flags/double_sided = false
+flags/double_sided = true
 flags/invert_faces = false
 flags/unshaded = false
 flags/on_top = false
