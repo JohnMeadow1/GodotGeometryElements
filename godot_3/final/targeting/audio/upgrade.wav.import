@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/upgrade.wav-6f5cc9ea8cced3f209ed5d4d5693bd87.sample"
+
+[deps]
+
+source_file="res://audio/upgrade.wav"
+source_md5="5e41ea6d5f3c4285ccc0d6e3a9ff07cf"
+
+dest_files=[ "res://.import/upgrade.wav-6f5cc9ea8cced3f209ed5d4d5693bd87.sample" ]
+dest_md5="4c8701abff11ea8d69c6d394e9647d33"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

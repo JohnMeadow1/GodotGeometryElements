@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/engine_noise.wav-85f4f991492a37f9d141af37377650ad.sample"
+
+[deps]
+
+source_file="res://audio/engine_noise.wav"
+source_md5="51b9d133fff4d500a9f32c2100df7202"
+
+dest_files=[ "res://.import/engine_noise.wav-85f4f991492a37f9d141af37377650ad.sample" ]
+dest_md5="2ab84ebffe225cda9da6e9dc8f87fde7"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
