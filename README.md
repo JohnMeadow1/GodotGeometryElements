@@ -20,6 +20,7 @@ Implementation of projections. Calculation of object spatial relation.
 ![projections](/assets/examples_animations/projections.gif)
 
 ### [bezier_curve](/final/bezier_curve) Godot 2.1.5 version
+### [bezier_curve](/godot_3/final/bezier_curve) Godot 3.0 version
 Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ![bezier](/assets/examples_animations/bezier.gif)
