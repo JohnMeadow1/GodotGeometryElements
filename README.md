@@ -6,32 +6,31 @@ This repository is dedicated to introducing geometry in game development. For th
 Objective of each example is to illustrate how selected geometry topics can be implemented and used in games.
 Each example have 2 versions: <b>start</b> with framework for implementation and <b> final</b> containing actual implementation.   
 
-### [2d_steering](/final/2d_steering)
+### [2d_steering](/final/2d_steering) Godot 2.1.5 version
 Introduction to vector manipulation by implementing basic 2d spacecraft steering using simplified Newtonian physics.
 
 ![2d_steering](/assets/examples_animations/2d_steering.gif)
 
-### [projections](/final/projections)
+### [projections](/final/projections) Godot 2.1.5 version
 Implementation of projections. Calculation of object spatial relation.
 
 ![projections](/assets/examples_animations/projections.gif)
 
-### [bezier_curve](/final/bezier_curve)
+### [bezier_curve](/final/bezier_curve) Godot 2.1.5 version
 Implementation of interactive Bézier curves: linear, quadric and cubic.
 
 ![bezier](/assets/examples_animations/bezier.gif)
 
-### vector_field
-
-### [targeting_solution](/final/targeting)
-Implementation of 2 approaches for aiming:
+### [targeting_solution](/final/targeting) Godot 2.1.5 version
+Implementation of two approaches for aiming:
 #### Aim approximation used by manoeuvring rockets
 #### Predictive aim based on quartic equation solution applied to projectiles with constant speed
 
 ![targeting](/assets/examples_animations/targeting.gif)
 
-### [ray_triangle_intersection](/final/ray_triangle_intersection)
-Implementation of basic ray tracing based on ray triangle intersection.
+### [ray_triangle_intersection](/final/ray_triangle_intersection) Godot 2.1.5 version
+### [ray_triangle_intersection](/godot_3/final/ray_triangle_intersection) Godot 3.0 version
+Implementation of basic ray tracing based on ray triangle intersection algorithm.
 
 ![ray_triangle_intersection](/assets/examples_animations/ray_triangle_intersection.gif)
 
