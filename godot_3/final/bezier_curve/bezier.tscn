@@ -1,0 +1,352 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://equations.png" type="Texture" id=1]
+[ext_resource path="res://bezier.gd" type="Script" id=2]
+
+[node name="root" type="Node" index="0"]
+
+__meta__ = {
+"__editor_plugin_screen__": "Script",
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+visible = false
+position = Vector2( 0, 140 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="bezier" type="Node2D" parent="." index="1"]
+
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point1" type="Node2D" parent="bezier" index="0"]
+
+editor/display_folded = true
+position = Vector2( 100, 150 )
+
+[node name="A" type="Label" parent="bezier/Point1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "A"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point2" type="Node2D" parent="bezier" index="1"]
+
+editor/display_folded = true
+position = Vector2( 500, 150 )
+
+[node name="B" type="Label" parent="bezier/Point2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "B"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point3" type="Node2D" parent="bezier" index="2"]
+
+editor/display_folded = true
+position = Vector2( 25.3173, 416.443 )
+
+[node name="A" type="Label" parent="bezier/Point3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "A"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point4" type="Node2D" parent="bezier" index="3"]
+
+editor/display_folded = true
+position = Vector2( 305.317, 266.443 )
+
+[node name="B" type="Label" parent="bezier/Point4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "B"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point5" type="Node2D" parent="bezier" index="4"]
+
+editor/display_folded = true
+position = Vector2( 389.83, 471.239 )
+
+[node name="C" type="Label" parent="bezier/Point5" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "C"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point6" type="Node2D" parent="bezier" index="5"]
+
+editor/display_folded = true
+position = Vector2( 484.297, 272.434 )
+rotation = -0.000738709
+
+[node name="A" type="Label" parent="bezier/Point6" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "A"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point7" type="Node2D" parent="bezier" index="6"]
+
+editor/display_folded = true
+position = Vector2( 586.425, 494.842 )
+
+[node name="Ac" type="Label" parent="bezier/Point7" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "Ac"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point8" type="Node2D" parent="bezier" index="7"]
+
+editor/display_folded = true
+position = Vector2( 742.656, 395.956 )
+
+[node name="Bc" type="Label" parent="bezier/Point8" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "Bc"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Point9" type="Node2D" parent="bezier" index="8"]
+
+editor/display_folded = true
+position = Vector2( 638.367, 208.131 )
+
+[node name="B1" type="Label" parent="bezier/Point9" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = -25.0
+margin_right = 35.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "B"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label_t" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 158.0
+margin_top = 30.0
+margin_right = 168.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "t"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_t0" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 85.0
+margin_top = 49.0
+margin_right = 95.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_t1" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 205.0
+margin_top = 49.0
+margin_right = 215.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+text = "1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

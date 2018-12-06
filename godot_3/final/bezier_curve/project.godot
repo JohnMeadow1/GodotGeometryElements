@@ -1,0 +1,23 @@
+[application]
+
+config/icon = "res://icon.png"
+config/name = "Bezier curve"
+run/main_scene = "res://bezier.tscn"
+
+[display]
+
+window/size/fullscreen = false
+window/size/height = 600
+window/size/width = 800
+
+[importer_defaults]
+
+texture = {
+"flags/filter": true,
+"flags/mipmaps": true
+}
+
+[rendering]
+
+environment/default_clear_color = Color( 0, 0, 0, 1 )
+
