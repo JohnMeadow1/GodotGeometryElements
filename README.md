@@ -30,7 +30,7 @@ Implementation of 2 approaches for aiming:
 
 ![targeting](/assets/examples_animations/targeting.gif)
 
-### [ray_triangle_intersection](/final/ray_triangle_intersection) 
+### [ray_triangle_intersection](/final/ray_triangle_intersection) Godot 2.1.5 version
 ### [ray_triangle_intersection](/godot_3/final/ray_triangle_intersection) Godot 3.0 version
 Implementation of basic ray tracing based on ray triangle intersection.
 
