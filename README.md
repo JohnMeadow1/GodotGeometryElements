@@ -1,4 +1,4 @@
-# GodotGeometryElements
+# Godot Geometry Elements
 All examples are created using ![Godot Engine](https://github.com/godotengine/godot) v2.1.4.stable
 This repository is dedicated to introducing geometry in game development. For this reason some well known methods of mathematical library of the Godot Engine can be reimplemented in GDScript for purpose of education.
 
