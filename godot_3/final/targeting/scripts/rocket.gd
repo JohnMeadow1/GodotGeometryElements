@@ -1,18 +1,18 @@
 extends Node2D
 
-var velocity            = Vector2( )
-var orientation         = 0
-var angular_v           = 0
-var thrust              = 0
+var velocity            = Vector2( 0.0, 0.0 )
+var orientation         = 0.0
+var angular_v           = 0.0
+var thrust              = 0.0
 var ACCELERATION        = 0.3
 
-var facing              = Vector2( )
+var facing              = Vector2( 0.0, 0.0 )
 
-onready var player      = get_node("../../Spaceship")
-var target              = Vector2()
-var angle_to_target     = 0
+onready var player      = $"../../Spaceship"
+var target              = Vector2( 0.0, 0.0 )
+var angle_to_target     = 0.0
 var active              = true
-var timer               = 0
+var timer               = 0.0
 
 func _ready():
 	pass
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		angle_to_target = aim_approximation()
 		angle_to_target = clamp( angle_to_target, -0.15, 0.15 )
 		orientation    += angle_to_target / PI
-		get_node("Node2D").rotation = orientation
+		$Node2D.rotation = orientation
 
 		var dot   = get_dot( target.normalized(), facing )
 		if dot >0.9:
@@ -65,7 +65,7 @@ func get_cross( V, W ):
 
 func destroy():
 	active = false
-	get_node("Node2D/AnimationPlayer").play("boom")
+	$Node2D/AnimationPlayer.play("boom")
 
 func _draw():
 	draw_circle( target, 5, Color(1,0,0,0.5) )

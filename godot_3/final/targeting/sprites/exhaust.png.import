@@ -7,10 +7,7 @@ path="res://.import/exhaust.png-60d031f0da28968c0ee1525cdfe31e84.stex"
 [deps]
 
 source_file="res://sprites/exhaust.png"
-source_md5="8a4a671f6fa33390fd98c3310c1a48a5"
-
 dest_files=[ "res://.import/exhaust.png-60d031f0da28968c0ee1525cdfe31e84.stex" ]
-dest_md5="cae87902010312f6e4ba215e984bff4f"
 
 [params]
 

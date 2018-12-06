@@ -1,20 +1,20 @@
 extends Node2D
 
-onready var player = get_node( "../Spaceship" )
-var bullet = preload("res://scenes/bullet.tscn")
+onready var player = $"../Spaceship"
+var bullet = preload( "res://scenes/bullet.tscn" )
 var rocket = preload( "res://scenes/rocket.tscn" )
 
 var vector_to_player = Vector2()
-var orientation      = 90
+var orientation      = 90.0
 var facing           = Vector2()
 var velocity         = Vector2()
 
-var laser_timer      = 0
+var laser_timer      = 0.0
 var laser_delay      = 2.5
-var rocket_timer     = 2
-var rocket_delay     = 3
+var rocket_timer     = 2.0
+var rocket_delay     = 3.0
 
-var target_heading   = 0
+var target_heading   = 0.0
 var target_solution  = false
 var predictive_aim   = Vector2()
 
@@ -37,7 +37,7 @@ func follow_player():
 
 	orientation = atan2( vector_to_player.y, vector_to_player.x)
 	facing      = Vector2 ( cos( orientation ), sin( orientation ) )
-	get_node("Sprite").rotation = orientation
+	$Sprite.rotation = orientation
 
 func calculate_targeting_solution( origin, target, projectileVelocity ):
 	target_solution      = false
@@ -63,8 +63,8 @@ func calculate_targeting_solution( origin, target, projectileVelocity ):
 
 func display_aiming():
 	if target_solution:
-		get_node("aim").position = predictive_aim
-		get_node("aim").visible = true 
+		$aim.position = predictive_aim
+		$aim.visible = true 
 		update()
 	else:
 		get_node("aim").visible = false
@@ -89,7 +89,7 @@ func create_bullet( angle ):
 	new_bullet.velocity = velocity + Vector2 ( cos( angle ), sin( angle ) ) * 10
 	new_bullet.position = self.position
 	new_bullet.rotation = angle
-	get_node("../bullets").add_child( new_bullet )
+	$"../bullets".add_child( new_bullet )
 
 	$"../AudioStreamPlayer".play()
 

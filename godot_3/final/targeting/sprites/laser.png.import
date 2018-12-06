@@ -7,10 +7,7 @@ path="res://.import/laser.png-f4ce210a174cac85145e35b68cb78881.stex"
 [deps]
 
 source_file="res://sprites/laser.png"
-source_md5="195d355ee3127928473137fbb6391ebf"
-
 dest_files=[ "res://.import/laser.png-f4ce210a174cac85145e35b68cb78881.stex" ]
-dest_md5="294968d42b121884c9958a6934604c71"
 
 [params]
 

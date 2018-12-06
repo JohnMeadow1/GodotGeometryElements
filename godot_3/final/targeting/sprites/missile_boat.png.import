@@ -7,10 +7,7 @@ path="res://.import/missile_boat.png-f2a46bc0f2d6348e103fac9fc0f51b60.stex"
 [deps]
 
 source_file="res://sprites/missile_boat.png"
-source_md5="ef6e9f512b71604f6925ef7c00f5497e"
-
 dest_files=[ "res://.import/missile_boat.png-f2a46bc0f2d6348e103fac9fc0f51b60.stex" ]
-dest_md5="48de54983b2dc124bfc4a5e851f94d86"
 
 [params]
 

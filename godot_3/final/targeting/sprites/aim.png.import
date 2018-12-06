@@ -7,10 +7,7 @@ path="res://.import/aim.png-946ab37cf82cf765f6b57ef8635cbac9.stex"
 [deps]
 
 source_file="res://sprites/aim.png"
-source_md5="fc75d4f0c743792eaf375bf8f43deafe"
-
 dest_files=[ "res://.import/aim.png-946ab37cf82cf765f6b57ef8635cbac9.stex" ]
-dest_md5="2708bfff1c9e389378671f9cc4463821"
 
 [params]
 

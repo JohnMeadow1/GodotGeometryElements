@@ -7,10 +7,7 @@ path="res://.import/fighter.png-6c36bd4e77fedff28dbedc3092bd716d.stex"
 [deps]
 
 source_file="res://sprites/fighter.png"
-source_md5="e725518c940740bd2c49fd388f3eab87"
-
 dest_files=[ "res://.import/fighter.png-6c36bd4e77fedff28dbedc3092bd716d.stex" ]
-dest_md5="ffd957375de777c40a38f66803394682"
 
 [params]
 

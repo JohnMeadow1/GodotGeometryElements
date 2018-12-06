@@ -15,34 +15,33 @@ var btn_right   = null
 var btn_fire    = null
 
 var velocity             = Vector2( 10.0, 0.0 )
-var thrust               = 0
+var thrust               = 0.0
 var ACCELERATION         = 0.35
 
-var angular_velocity     = 0
+var angular_velocity     = 0.0
 var angular_acceleration = 0.005
-
-var orientation          = 0
+var orientation          = 0.0
 var facing               = Vector2 ( 0.0, 0.0 )
 
 var use_gravity          = false
-var gravity_force        = 0
+var gravity_force        = 0.0
 var gravity_vector       = Vector2 ( 0.0, 0.0 )
 var mass                 = 1000
 
 var vector_to_asteroid   = Vector2 ( 0.0, 0.0 )
-var distance_to_asteroid = 0
+var distance_to_asteroid = 0.0
 onready var asteroid     = get_parent().get_node("Asteroid")
 
 var projection           = Vector2 ( 0.0, 0.0 )
 
-var collision_distance   = 0
+var collision_distance   = 0.0
 var collision_vector     = Vector2 ( 0.0, 0.0 )
 
-var dot                  = 0
-var cross                = 0
+var dot                  = 0.0
+var cross                = 0.0
 
 var bullet               = preload("res://scenes/bullet.tscn")
-var fire_timer           = 0
+var fire_timer           = 0.0
 var hp                   = 100
 
 var draw_motion_vectors  = false
@@ -68,7 +67,7 @@ func _physics_process( delta ):
 	velocity      += facing * thrust + gravity_vector
 	self.position += velocity
 
-	get_node("Sprite_ship").rotation = orientation
+	$Sprite_ship.rotation = orientation
 	
 	if draw_motion_vectors:
 		update()
@@ -83,10 +82,10 @@ func process_input( delta ):
 	thrust = 0
 	if btn_up   > 1:
 		thrust =  ACCELERATION
-		get_node("Sprite_ship/AnimationPlayer").play("fire")
+		$Sprite_ship/AnimationPlayer.play("fire")
 	if btn_down > 1:
 		thrust = -ACCELERATION
-		get_node("Sprite_ship/AnimationPlayer").play("fire")
+		$Sprite_ship/AnimationPlayer.play("fire")
 
 	if btn_left  > 1:
 		angular_velocity = angular_velocity - 0.01
@@ -134,10 +133,10 @@ func create_bullet():
 		new_bullet.position = self.position
 		new_bullet.rotation = orientation 
 		new_bullet.velocity = (facing + Vector2(rand_range(-0.05,0.05),rand_range(-0.05,0.05))) * 20
-		get_node("../bullets").add_child( new_bullet )
+		$"../bullets".add_child( new_bullet )
 
 func explosion():
-	get_node("Explosion/AnimationPlayer").play("boom")
+	$"Explosion/AnimationPlayer".play("boom")
 
 func get_dot_product( V, W ):
 	# this method re-implements in engine method: Vector2().dot(Vector2()) for teaching purposes

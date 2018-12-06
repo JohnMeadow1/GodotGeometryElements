@@ -41,6 +41,7 @@ __meta__ = {
 visible = false
 texture = ExtResource( 1 )
 centered = false
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Spaceship" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -83,7 +84,8 @@ position = Vector2( 573.379, 467.032 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = SubResource( 2 )
-volume_db = 0.0
+volume_db = -10.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"

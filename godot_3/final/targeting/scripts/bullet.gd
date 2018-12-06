@@ -1,20 +1,20 @@
 
 extends Sprite
 
-var velocity = Vector2()
-var timer    = 0
-var asteroid = Vector2()
-var gravity  = Vector2()
-var target   = Vector2()
-var id       = 0
+var velocity = Vector2( 0.0, 0.0 )
+var timer    = 0.0
+var asteroid = Vector2( 0.0, 0.0 )
+var gravity  = Vector2( 0.0, 0.0 )
+var target   = Vector2( 0.0, 0.0 )
+var id       = 0.0
 
-onready var player   = get_node("../../Spaceship")
+onready var player   = $"../../Spaceship"
 
 func _ready():
 	pass
 
 func _physics_process( delta ):
-	asteroid = self.position - get_node("../../Asteroid").position
+	asteroid = self.position - $"../../Asteroid".position
 #	velocity  += 10000/clamp(asteroid.length_squared(),40,10000)         \
 #	           * -asteroid.normalized()
 	position += velocity 
@@ -29,7 +29,7 @@ func _physics_process( delta ):
 			player.hp -=5
 			queue_free()
 	else:
-		for node in get_node("../../rockets").get_children():
+		for node in $"../../rockets".get_children():
 			if ( (node.position - self.position).length() < 20 && node.active == true ):
 				node.destroy()
 				queue_free()

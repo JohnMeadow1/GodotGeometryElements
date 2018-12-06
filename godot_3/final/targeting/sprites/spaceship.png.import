@@ -7,10 +7,7 @@ path="res://.import/spaceship.png-6c5cb8ec3385c5a06867e995997c254d.stex"
 [deps]
 
 source_file="res://sprites/spaceship.png"
-source_md5="0e6dfdc3624403aa1a713dafa7102128"
-
 dest_files=[ "res://.import/spaceship.png-6c5cb8ec3385c5a06867e995997c254d.stex" ]
-dest_md5="28de408eeff597cabfd2c7ded72394c4"
 
 [params]
 
