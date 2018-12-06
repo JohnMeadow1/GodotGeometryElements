@@ -24,6 +24,8 @@ Implementation of interactive Bézier curves: linear, quadric and cubic.
 ![bezier](/assets/examples_animations/bezier.gif)
 
 ### [targeting_solution](/final/targeting) Godot 2.1.5 version
+### [targeting_solution](/godot_3/final/targeting) Godot 3.0 version
+
 Implementation of two approaches for aiming:
 #### Aim approximation used by manoeuvring rockets
 #### Predictive aim based on quartic equation solution applied to projectiles with constant speed
