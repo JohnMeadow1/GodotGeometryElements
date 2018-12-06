@@ -14,6 +14,7 @@ Introduction to vector manipulation by implementing basic 2d spacecraft steering
 ![2d_steering](/assets/examples_animations/2d_steering.gif)
 
 ### [projections](/final/projections) Godot 2.1.5 version
+### [projections](/godot_3/final/projections) Godot 3.0 version
 Implementation of projections. Calculation of object spatial relation.
 
 ![projections](/assets/examples_animations/projections.gif)
