@@ -101,17 +101,7 @@ func print_location():
 		string += "\nFiring"
 	get_node("../Label").set_text( string )
 
-func get_dot_product( V, W ):
-	# this method re-implements in engine method: Vector2().dot(Vector2()) for teaching purposes
-	return V.x * W.x + V.y * W.y
 
-func get_cross_product( V, W ):
-	# this method follow 3d equation for cross product resulting in scalar. Some game engines implement this method. Godot engine does not.
-	# cross product of two 3d vectors is a vector perpendicular to both given vectors.
-	return V.x * W.y - V.y * W.x
-
-func get_projection( V, W ):
-	return ( get_dot_product( V, W ) / V.length_squared() ) * V
 
 func process_input():
 	btn_up    = state_up.check()
