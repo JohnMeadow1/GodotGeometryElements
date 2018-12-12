@@ -86,9 +86,9 @@ _sections_unfolded = [ "Ambient Light", "Background", "Fog" ]
 [sub_resource type="PlaneMesh" id=2]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector2( 1000, 1000 )
-subdivide_width = 0
-subdivide_depth = 0
+size = Vector2( 200, 200 )
+subdivide_width = 100
+subdivide_depth = 100
 
 [sub_resource type="SpatialMaterial" id=3]
 
@@ -233,7 +233,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 1, 0, 0, 1 )
+albedo_color = Color( 0, 1, 0, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -292,7 +292,7 @@ params_point_size = 5.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 1, 0, 0, 1 )
+albedo_color = Color( 0, 1, 0, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -381,7 +381,7 @@ script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="Enviroment" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95313, 3.96527 )
+transform = Transform( 1, 0, 0, 0, 0.811898, 0.583799, 0, -0.583799, 0.811898, 0, 2.95313, 3.96527 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = SubResource( 1 )
@@ -418,10 +418,13 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Omni" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="floor" type="MeshInstance" parent="Enviroment" index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -434,11 +437,14 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "material" ]
+_sections_unfolded = [ "Transform", "material" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Ray" type="MeshInstance" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414015, -0.0147638, 4.76251 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
 layers = 1
 material_override = SubResource( 3 )
 cast_shadow = 1
@@ -455,7 +461,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Source" type="MeshInstance" parent="." index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.917226, -0.006479, 5.76657 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 9 )
 layers = 1
 material_override = SubResource( 5 )
 cast_shadow = 1
@@ -472,7 +478,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Hit" type="MeshInstance" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21442, -0.0387182, 1.85944 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.732591, 0, 1.00506 )
 layers = 1
 material_override = SubResource( 7 )
 cast_shadow = 1
@@ -502,7 +508,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Target_geometry" type="ImmediateGeometry" parent="." index="5"]
 
-transform = Transform( 0.26693, 0, 0.963727, 0, 1, 0, -0.963727, 0, 0.26693, 0, 0, 0 )
+transform = Transform( 0.589032, 0, 0.808103, 0, 1, 0, -0.808103, 0, 0.589032, 0, 0, 0 )
 layers = 1
 material_override = ExtResource( 3 )
 cast_shadow = 1
@@ -516,7 +522,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Target_wireframe" type="ImmediateGeometry" parent="." index="6"]
 
-transform = Transform( 0.26693, 0, 0.963727, 0, 1, 0, -0.963727, 0, 0.26693, 0, 0, 0 )
+transform = Transform( 0.589034, 0, 0.808107, 0, 1, 0, -0.808107, 0, 0.589034, 0, 0, 0 )
 layers = 1
 material_override = SubResource( 10 )
 cast_shadow = 0
