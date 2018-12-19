@@ -18,6 +18,9 @@ var timer_step = 0.01
 var is_target_hit = false
 
 func _ready():
+	$Target_geometry.rotation_degrees  = Vector3(0.0,0.0,0.0)
+	$Target_wireframe.rotation_degrees = Vector3(0.0,0.0,0.0)
+
 	generate_geometry()
 	generate_geometry_wireframe()
 

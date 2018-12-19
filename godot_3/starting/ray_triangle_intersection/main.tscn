@@ -455,7 +455,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Source" type="MeshInstance" parent="." index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75726, -0.006479, 5.76657 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33, 0, 6 )
 layers = 1
 material_override = SubResource( 5 )
 cast_shadow = 1
@@ -501,7 +501,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Target_geometry" type="ImmediateGeometry" parent="." index="5"]
 
-transform = Transform( -0.442152, 0, 0.897176, 0, 1, 0, -0.897176, 0, -0.442152, 0, 0, 0 )
+transform = Transform( 0.876787, 0, -0.481409, 0, 1, 0, 0.481409, 0, 0.876787, 0, 0, 0 )
 layers = 1
 material_override = ExtResource( 3 )
 cast_shadow = 1
@@ -515,7 +515,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Target_wireframe" type="ImmediateGeometry" parent="." index="6"]
 
-transform = Transform( -0.442152, 0, 0.897176, 0, 1, 0, -0.897176, 0, -0.442152, 0, 0, 0 )
+transform = Transform( 0.876787, 0, -0.481409, 0, 1, 0, 0.481409, 0, 0.876787, 0, 0, 0 )
 layers = 1
 material_override = SubResource( 10 )
 cast_shadow = 0
