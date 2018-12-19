@@ -18,10 +18,13 @@ var timer_step = 0.01
 var is_target_hit = false
 
 func _ready():
+	$Target_geometry.rotation_degrees = Vector3(0.0,0.0,0.0)
+	$Target_wireframe.rotation_degrees = Vector3(0.0,0.0,0.0)
+	$Source.translation = Vector3(0,0,9)
 	generate_geometry()
 	generate_geometry_wireframe()
 
-func _physics_process(delta):
+func _process(delta):
 	timer += delta
 	if ( timer >= 2 ):
 		timer_step *= -1
@@ -47,7 +50,7 @@ func test_triangle_hit( P1, P2, P3 ):
 	var source = $Source.translation
 	var surface_normal = ( P2 - P1 ).cross( P3 - P1 ).normalized()
 	a = -surface_normal.dot(P1)
-	if surface_normal.dot( ray ) != 0:
+	if surface_normal.dot( ray ) !=0:
 		t = -( surface_normal.dot( source ) + a ) / ( surface_normal.dot( ray ) )
 		var surface_hit = source + t * ray
 		if ( (P2 - P1).cross(surface_hit - P1) ).dot(surface_normal) > 0:
@@ -88,7 +91,7 @@ func generate_geometry():
 	P1 = Vector3( -2, -2, 0 )
 	P2 = Vector3(  2, -2, 0 )
 	P3 = Vector3(  2,  2, 0 )
-	P4 = Vector3( -2,  2, 0 ).rotated( Vector3( 1, 0, 0 ), 1 )
+	P4 = Vector3( -2,  2, 0 )#.rotated( Vector3( 1, 0, 0 ), 1 )
 	
 	$Target_geometry.begin( VisualServer.PRIMITIVE_TRIANGLES, null )
 	
