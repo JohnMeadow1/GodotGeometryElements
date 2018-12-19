@@ -47,16 +47,17 @@ func test_triangle_hit( P1, P2, P3 ):
 	var source = $Source.translation
 	var surface_normal = ( P2 - P1 ).cross( P3 - P1 ).normalized()
 	a = -surface_normal.dot(P1)
-	t = -( surface_normal.dot( source ) + a ) / ( surface_normal.dot( ray ) )
-	var surface_hit = source + t * ray
-	if ( (P2 - P1).cross(surface_hit - P1) ).dot(surface_normal) > 0:
-		if ( (P3 - P2).cross(surface_hit - P2) ).dot(surface_normal) > 0:
-			if ( (P1 - P3).cross(surface_hit - P3) ).dot(surface_normal) > 0:
-				$Hit.material_override.set("albedo_color", Color( 0, 1, 0 ) )
-				$Ray_geometry.material_override.set("albedo_color", Color( 0, 1, 0 ) )
-				hit    = surface_hit
-				normal = surface_normal
-				return true
+	if surface_normal.dot( ray ) != 0:
+		t = -( surface_normal.dot( source ) + a ) / ( surface_normal.dot( ray ) )
+		var surface_hit = source + t * ray
+		if ( (P2 - P1).cross(surface_hit - P1) ).dot(surface_normal) > 0:
+			if ( (P3 - P2).cross(surface_hit - P2) ).dot(surface_normal) > 0:
+				if ( (P1 - P3).cross(surface_hit - P3) ).dot(surface_normal) > 0:
+					$Hit.material_override.set("albedo_color", Color( 0, 1, 0 ) )
+					$Ray_geometry.material_override.set("albedo_color", Color( 0, 1, 0 ) )
+					hit    = surface_hit
+					normal = surface_normal
+					return true
 	return false
 	
 func calculate_ray_reflection():
