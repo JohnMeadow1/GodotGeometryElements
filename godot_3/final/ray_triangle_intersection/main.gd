@@ -20,7 +20,7 @@ var is_target_hit = false
 func _ready():
 	$Target_geometry.rotation_degrees = Vector3(0.0,0.0,0.0)
 	$Target_wireframe.rotation_degrees = Vector3(0.0,0.0,0.0)
-	$Source.translation = Vector3(0,0,9)
+#	$Source.translation = Vector3(0,0,9)
 	generate_geometry()
 	generate_geometry_wireframe()
 
@@ -91,7 +91,7 @@ func generate_geometry():
 	P1 = Vector3( -2, -2, 0 )
 	P2 = Vector3(  2, -2, 0 )
 	P3 = Vector3(  2,  2, 0 )
-	P4 = Vector3( -2,  2, 0 )#.rotated( Vector3( 1, 0, 0 ), 1 )
+	P4 = Vector3( -2,  2, 0 ).rotated( Vector3( 1, 0, 0 ), 1 )
 	
 	$Target_geometry.begin( VisualServer.PRIMITIVE_TRIANGLES, null )
 	

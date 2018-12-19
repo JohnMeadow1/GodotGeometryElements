@@ -233,7 +233,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0, 1, 0, 1 )
+albedo_color = Color( 1, 0, 0, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -292,7 +292,7 @@ params_point_size = 5.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0, 1, 0, 1 )
+albedo_color = Color( 1, 0, 0, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -379,6 +379,8 @@ script = ExtResource( 1 )
 
 [node name="Enviroment" type="Node" parent="." index="0"]
 
+editor/display_folded = true
+
 [node name="Camera" type="Camera" parent="Enviroment" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 0.811898, 0.583799, 0, -0.583799, 0.811898, 0, 2.95313, 3.96527 )
@@ -461,7 +463,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Source" type="MeshInstance" parent="." index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, 0, 9 )
 layers = 1
 material_override = SubResource( 5 )
 cast_shadow = 1
@@ -478,7 +480,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Hit" type="MeshInstance" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.732591, 0, 1.00506 )
 layers = 1
 material_override = SubResource( 7 )
 cast_shadow = 1
@@ -508,7 +509,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Target_geometry" type="ImmediateGeometry" parent="." index="5"]
 
-transform = Transform( 0.589032, 0, 0.808103, 0, 1, 0, -0.808103, 0, 0.589032, 0, 0, 0 )
+transform = Transform( 0.187131, 0, 0.982332, 0, 1, 0, -0.982332, 0, 0.187131, 0, 0, 0 )
 layers = 1
 material_override = ExtResource( 3 )
 cast_shadow = 1
@@ -522,7 +523,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Target_wireframe" type="ImmediateGeometry" parent="." index="6"]
 
-transform = Transform( 0.589034, 0, 0.808107, 0, 1, 0, -0.808107, 0, 0.589034, 0, 0, 0 )
+transform = Transform( 0.187132, 0, 0.982336, 0, 1, 0, -0.982336, 0, 0.187132, 0, 0, 0 )
 layers = 1
 material_override = SubResource( 10 )
 cast_shadow = 0
