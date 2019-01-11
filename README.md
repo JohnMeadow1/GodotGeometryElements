@@ -40,6 +40,11 @@ Implementation of basic ray tracing based on ray triangle intersection algorithm
 
 ![ray_triangle_intersection](/assets/examples_animations/ray_triangle_intersection.gif)
 
+### [selection_in_3d](/godot_3/final/selection_in_3d) Godot 3.0 version
+Implementation of simple method for selecting points in space.
+
+![selection_in_3d](/assets/examples_animations/selection_in_3d.gif)
+
 ## Acknowledgement
 Some examples and code fragments are borrowed or inspired by work of Godot Engine community members. Especially:
 
