@@ -1,5 +1,5 @@
 # Godot Geometry Elements
-[![Godot Engine logo](/logo.png)](https://godotengine.org)
+[![Godot Engine logo](https://github.com/godotengine/godot/logo.png)](https://godotengine.org)
 All examples are created using ![Godot Engine](https://github.com/godotengine/godot) v3.0 (or later)
 This repository is dedicated to introducing geometry in game development. For this reason some standard methods from mathematical library of Godot Engine are reimplemented in GDScript for purpose of education.
 
