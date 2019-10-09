@@ -1,10 +1,10 @@
 # Godot Geometry Elements
-All examples are created using ![Godot Engine](https://github.com/godotengine/godot) v2.1.5.stable
-This repository is dedicated to introducing geometry in game development. For this reason some well known methods of mathematical library of the Godot Engine can be reimplemented in GDScript for purpose of education.
+All examples are created using ![Godot Engine](https://github.com/godotengine/godot) v3.0 (or later)
+This repository is dedicated to introducing geometry in game development. For this reason some standard methods from mathematical library of Godot Engine are reimplemented in GDScript for purpose of education.
 
 ## Examples:
 Objective of each example is to illustrate how selected geometry topics can be implemented and used in games.
-Each example have 2 versions (only for porjects in Godot 2.1.5): <b>start</b> with framework for implementation and <b> final</b> containing actual implementation.   
+Each example have 2 versions: <b>starting</b> with framework for implementation and <b>final</b> containing actual implementation.   
 
 
 ### [2d_steering](/final/2d_steering)
