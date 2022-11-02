@@ -1,32 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://eahxhn34kvke"]
+[gd_scene load_steps=9 format=3 uid="uid://eahxhn34kvke"]
 
 [ext_resource type="Script" path="res://rotation_transform.gd" id="2"]
+[ext_resource type="Material" uid="uid://cqdpkqx4hbos7" path="res://Lajkonik/LaJkonik.material" id="2_f2rxs"]
+[ext_resource type="Script" path="res://Camera.gd" id="2_xofsp"]
 [ext_resource type="ArrayMesh" uid="uid://8jofh3vmc5kj" path="res://Lajkonik/Lajkonik_middle_poly.obj" id="3"]
 [ext_resource type="Script" path="res://Transformacje.gd" id="4"]
+[ext_resource type="Environment" uid="uid://br6j03gp2mttt" path="res://default_env.tres" id="6_nl7qu"]
 
 [sub_resource type="BoxMesh" id="1"]
 size = Vector3(10, 10, 10)
 
 [sub_resource type="PrismMesh" id="3"]
+size = Vector3(5, 5, 5)
 
-[node name="Transformacje" type="Node3D"]
+[node name="World" type="Node3D"]
 script = ExtResource("4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939991, 0.3412, 0, -0.3412, 0.939991, 0, 25.1511, 31.2405)
+environment = ExtResource("6_nl7qu")
+script = ExtResource("2_xofsp")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3096, 5, -11.6114)
+transform = Transform3D(0.76882, -0.639466, 0, 0.639466, 0.76882, 0, 0, 0, 1, 0, 5, 0)
 mesh = SubResource("1")
 
 [node name="Lajkonik" type="MeshInstance3D" parent="Cube"]
-transform = Transform3D(1, 2.98023e-08, 0, 0, -4.37114e-08, 1, 2.98023e-08, -1, -4.37114e-08, 14.2262, 18, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 18, 0)
+material_override = ExtResource("2_f2rxs")
 mesh = ExtResource("3")
 script = ExtResource("2")
 
 [node name="hand" type="Marker3D" parent="Cube/Lajkonik"]
-transform = Transform3D(0.999999, -0.000987801, 0.00131235, 0.00131097, -0.00132804, -0.999998, 0.000989524, 0.999999, -0.00132676, 2.61697, -2.77757, 1.50081)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.61697, -2.77757, 1.50081)
+
+[node name="Label3D" type="Label3D" parent="Cube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0063, 14.9129, 0)
+text = "Test"
+font_size = 320
 
 [node name="pyramid" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999998, -0.000987801, 0.00131232, 0.000989524, 0.999999, -0.00132671, -0.00131094, 0.00132799, 0.999998, 16.8431, 19.5008, 2.77757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8431, 7.77369, 2.77757)
 mesh = SubResource("3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3347, 34.2785, 22.1373)
+light_energy = 16.0
+shadow_enabled = true
+omni_range = 200.0
