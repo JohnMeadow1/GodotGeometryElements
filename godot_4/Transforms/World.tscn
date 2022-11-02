@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg6th330r0o4e"]
+
+[ext_resource type="Script" path="res://World.gd" id="1_yt71w"]
+[ext_resource type="Environment" uid="uid://br6j03gp2mttt" path="res://default_env.tres" id="2_jjp3f"]
+[ext_resource type="Script" path="res://Camera.gd" id="3_dkfv0"]
+[ext_resource type="ArrayMesh" uid="uid://8jofh3vmc5kj" path="res://Lajkonik/Lajkonik_middle_poly.obj" id="4_iw748"]
+[ext_resource type="Material" uid="uid://cqdpkqx4hbos7" path="res://Lajkonik/LaJkonik.material" id="5_xr4e3"]
+[ext_resource type="Script" path="res://Cube.gd" id="6_3wiu6"]
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kab7"]
+albedo_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[sub_resource type="PrismMesh" id="3"]
+size = Vector3(5, 5, 5)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_yt71w")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939991, 0.3412, 0, -0.3412, 0.939991, 0, 25.1511, 31.2405)
+environment = ExtResource("2_jjp3f")
+script = ExtResource("3_dkfv0")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.730512, 0.276392, -0.624468, -0.210092, 0.961045, 0.179594, 0.64978, 0, 0.760122, 0, 5, 0)
+mesh = SubResource("1")
+script = ExtResource("6_3wiu6")
+
+[node name="Lajkonik" type="MeshInstance3D" parent="Cube"]
+transform = Transform3D(0.678326, 0.734761, 8.21273e-09, 9.32409e-09, -2.92334e-08, 1, 0.734761, -0.678326, -5.50582e-08, -2.38419e-07, 18, 3.57628e-07)
+mesh = ExtResource("4_iw748")
+surface_material_override/0 = ExtResource("5_xr4e3")
+surface_material_override/1 = SubResource("StandardMaterial3D_1kab7")
+
+[node name="hand" type="Marker3D" parent="Cube/Lajkonik"]
+transform = Transform3D(1, -2.03636e-08, 0, 0, -8.55474e-08, -1, -7.37509e-08, 1, -1.38288e-07, 2.38363, -2.71954, 1.41515)
+rotation_edit_mode = 2
+
+[node name="Label3D" type="Label3D" parent="Cube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0063, 14.9129, 0)
+text = "Test"
+font_size = 320
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3347, 34.2785, 22.1373)
+light_energy = 16.0
+shadow_enabled = true
+omni_range = 200.0
+
+[node name="pyramid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7281, 0, 0)
+mesh = SubResource("3")
