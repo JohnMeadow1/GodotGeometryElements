@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://eahxhn34kvke"]
+
+[ext_resource type="Script" path="res://rotation_transform.gd" id="2"]
+[ext_resource type="ArrayMesh" uid="uid://8jofh3vmc5kj" path="res://Lajkonik/Lajkonik_middle_poly.obj" id="3"]
+[ext_resource type="Script" path="res://Transformacje.gd" id="4"]
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="PrismMesh" id="3"]
+
+[node name="Transformacje" type="Node3D"]
+script = ExtResource("4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939991, 0.3412, 0, -0.3412, 0.939991, 0, 25.1511, 31.2405)
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3096, 5, -11.6114)
+mesh = SubResource("1")
+
+[node name="Lajkonik" type="MeshInstance3D" parent="Cube"]
+transform = Transform3D(1, 2.98023e-08, 0, 0, -4.37114e-08, 1, 2.98023e-08, -1, -4.37114e-08, 14.2262, 18, 0)
+mesh = ExtResource("3")
+script = ExtResource("2")
+
+[node name="hand" type="Marker3D" parent="Cube/Lajkonik"]
+transform = Transform3D(0.999999, -0.000987801, 0.00131235, 0.00131097, -0.00132804, -0.999998, 0.000989524, 0.999999, -0.00132676, 2.61697, -2.77757, 1.50081)
+
+[node name="pyramid" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999998, -0.000987801, 0.00131232, 0.000989524, 0.999999, -0.00132671, -0.00131094, 0.00132799, 0.999998, 16.8431, 19.5008, 2.77757)
+mesh = SubResource("3")
