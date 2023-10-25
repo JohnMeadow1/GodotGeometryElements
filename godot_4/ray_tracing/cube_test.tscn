@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://nlqm3t48jek8"]
+
+[ext_resource type="Texture2D" uid="uid://cnsahe818lh6c" path="res://target.png" id="1"]
+[ext_resource type="Script" path="res://camera.gd" id="2"]
+[ext_resource type="Script" path="res://cube_test.gd" id="3"]
+
+[sub_resource type="Environment" id="1"]
+background_mode = 1
+background_color = Color(0.270588, 0.270588, 0.270588, 1)
+ambient_light_color = Color(0.273438, 0.273438, 0.273438, 1)
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(200, 200)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="StandardMaterial3D" id="3"]
+albedo_color = Color(0, 0, 1, 1)
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="4"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="5"]
+albedo_color = Color(1, 1, 0, 1)
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="6"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="7"]
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="8"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="9"]
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+specular_mode = 3
+albedo_color = Color(1, 0, 0, 1)
+point_size = 5.0
+
+[sub_resource type="StandardMaterial3D" id="10"]
+albedo_texture = ExtResource("1")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="11"]
+material = SubResource("10")
+size = Vector3(4, 5, 4)
+
+[node name="Node" type="Node"]
+script = ExtResource("3")
+
+[node name="Enviroment" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 0.811898, 0.583799, 0, -0.583799, 0.811898, 0, 2.95313, 3.96527)
+environment = SubResource("1")
+current = true
+fov = 60.0
+near = 2.0
+script = ExtResource("2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254496, 8.47926, 4.25873)
+omni_range = 50.0
+
+[node name="floor" type="MeshInstance3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+mesh = SubResource("2")
+
+[node name="Ray" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.707, 2, 2.707)
+material_override = SubResource("3")
+mesh = SubResource("4")
+
+[node name="Source" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0373, 2, 13.8234)
+material_override = SubResource("5")
+mesh = SubResource("6")
+
+[node name="Hit" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0, 0.659539)
+material_override = SubResource("7")
+mesh = SubResource("8")
+
+[node name="Ray_geometry" type="ImmediateMesh" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+material_override = SubResource("9")
+script = null
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707, 0, 0.707, 0, 1, 0, -0.707, 0, 0.707, 7, 3, 8)
+mesh = SubResource("11")

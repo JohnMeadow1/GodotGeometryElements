@@ -1,0 +1,19 @@
+[remap]
+
+importer="animated_texture"
+type="AnimatedTexture"
+path="res://.import/Ray_sphere.gif-f25188b593f2c9f236fded814e880a41.atex"
+
+[deps]
+
+source_file="res://Ray_sphere.gif"
+dest_files=[ "res://.import/Ray_sphere.gif-f25188b593f2c9f236fded814e880a41.atex" ]
+
+[params]
+
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=0
+max_frames=0

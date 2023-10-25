@@ -1,0 +1,113 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://target.png" type="Texture2D" id=1]
+[ext_resource path="res://camera.gd" type="Script" id=2]
+[ext_resource path="res://sphere_test.gd" type="Script" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.270588, 0.270588, 0.270588, 1 )
+ambient_light_color = Color( 0.273438, 0.273438, 0.273438, 1 )
+fog_height_min = 0.0
+fog_height_max = 100.0
+ssao_quality = 0
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 200, 200 )
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="StandardMaterial3D" id=3]
+albedo_color = Color( 0, 0, 1, 1 )
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id=4]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="StandardMaterial3D" id=5]
+albedo_color = Color( 1, 1, 0, 1 )
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id=6]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="StandardMaterial3D" id=7]
+albedo_color = Color( 0, 1, 0, 1 )
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id=8]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="StandardMaterial3D" id=9]
+flags_unshaded = true
+params_diffuse_mode = 1
+params_specular_mode = 3
+params_cull_mode = 2
+params_line_width = 5.0
+params_point_size = 5.0
+albedo_color = Color( 0, 1, 0, 1 )
+
+[sub_resource type="StandardMaterial3D" id=10]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SphereMesh" id=11]
+material = SubResource( 10 )
+radius = 2.0
+height = 4.0
+
+[node name="Node" type="Node"]
+script = ExtResource( 5 )
+radius = 2.0
+
+[node name="Enviroment" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Enviroment"]
+transform = Transform3D( 1, 0, 0, 0, 0.811898, 0.583799, 0, -0.583799, 0.811898, 0, 2.95313, 3.96527 )
+environment = SubResource( 1 )
+current = true
+fov = 60.0
+near = 2.0
+script = ExtResource( 2 )
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Enviroment"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254496, 8.47926, 4.25873 )
+shadow_enabled = true
+shadow_bias = 0.5
+omni_range = 50.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floor" type="MeshInstance3D" parent="Enviroment"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ray" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.34289 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Source" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Hit" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71363e-07, -2.38419e-07, 1.73549 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Ray_geometry" type="ImmediateMesh" parent="."]
+material_override = SubResource( 9 )
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D( 0.788339, 0.522131, 0.328971, 0.588679, -0.476037, -0.655498, -0.185462, 0.709385, -0.682047, -0.0842102, -0.996448, 0 )
+mesh = SubResource( 11 )
+material/0 = null
