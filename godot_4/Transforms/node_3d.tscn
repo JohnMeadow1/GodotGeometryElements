@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://00e7ybbgjguh"]
+
+[sub_resource type="GDScript" id="GDScript_x4r50"]
+script/source = "extends Node3D
+
+var V1 = Vector3(1,1,1)
+#var V1 = Vector3(2,5,3)
+func _ready():
+	var V1_ =  $Rotation_y.transform * $Rotation_z.transform * V1
+#	print($Rotation_y.transform.basis * $Rotation_y/Rotation_z.transform.basis)
+	print (V1_)
+	-5
+	3.09808
+	-0.732051
+#	(-2.830125, 5.098075, -2)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Node3D" type="Node3D"]
+rotation_edit_mode = 2
+script = SubResource("GDScript_x4r50")
+
+[node name="Rotation_y" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Rotation_z" type="Node3D" parent="."]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 2
