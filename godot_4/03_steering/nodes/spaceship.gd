@@ -1,44 +1,44 @@
 extends Node2D
 
-const ACCELERATION := 400.0
-const ANGULAR_ACCELERATION := 0.01
+const ACCELERATION := 100.0
+const ANGULAR_ACCELERATION := 0.5
 var speed := 0.0
 var velocity := Vector2()
 var angular_velocity := 0.0
+var thrust := 0.0
+var angular_thrust := 0.0
 
 var orientation := 0.0
-var heading := Vector2()
+var heading := Vector2(1,0)
 var vector_to_mouse :Vector2
-var fov_radius := 300
+var fov_radius := 100
 var fov_angle := deg_to_rad(90)
 var in_field_of_view := false
 @onready var sprite_2d = $Sprite2D as Sprite2D
 
 func _process(delta):
 	process_input()
+	$Label.text = str(orientation)
+	angular_velocity += angular_thrust * delta
+	orientation += angular_velocity
+	heading = Vector2(cos(orientation), sin(orientation))
 	
-	
-#	orientation = lerp(orientation, atan2(vector_to_mouse.y, vector_to_mouse.x), 0.01)
-#	orientation += atan2(heading.cross(vector_to_mouse), heading.dot(vector_to_mouse) ) * delta 
-#	orientation += heading.angle_to(vector_to_mouse) * delta * 5
-
+	velocity += heading * thrust * delta
+	position += velocity
 	sprite_2d.rotation = orientation
 	queue_redraw()
 
 func process_input():
-	speed = 0
+	thrust = 0
+	angular_thrust = 0
 	if Input.is_action_pressed("RIGHT"):
-#		velocity += Vector2(SPEED, 0.0)
-		angular_velocity += ANGULAR_ACCELERATION
+		angular_thrust = ANGULAR_ACCELERATION
 	if Input.is_action_pressed("LEFT"):
-#		velocity += Vector2(-SPEED, 0.0)
-		angular_velocity -= ANGULAR_ACCELERATION
+		angular_thrust = -ANGULAR_ACCELERATION
 	if Input.is_action_pressed("UP"):
-		speed += ACCELERATION
-#		velocity += Vector2(0.0, -SPEED)
+		thrust = ACCELERATION
 	if Input.is_action_pressed("DOWN"):
-		speed -= ACCELERATION
-#		velocity += Vector2(0.0, SPEED)
+		thrust = -ACCELERATION
 
 func _draw():
 	draw_vector(Vector2(0,0), velocity, Color(1,1,1), 2) 
@@ -80,6 +80,9 @@ func draw_circle_arc(radius, angle_from, angle_to):
 	draw_line( Vector2.ZERO, Vector2( cos( angle_from ), sin( angle_from )) * radius, Color.WHEAT)
 	draw_line( Vector2.ZERO, Vector2( cos( angle_to )  , sin( angle_to ))   * radius, Color.WHEAT)
 
+#	orientation = lerp(orientation, atan2(vector_to_mouse.y, vector_to_mouse.x), 0.01)
+#	orientation += atan2(heading.cross(vector_to_mouse), heading.dot(vector_to_mouse) ) * delta 
+#	orientation += heading.angle_to(vector_to_mouse) * delta * 5
 
 
 

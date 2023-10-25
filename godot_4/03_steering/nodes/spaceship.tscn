@@ -13,5 +13,5 @@ texture = ExtResource("1_f3lal")
 
 [node name="Label" type="Label" parent="."]
 offset_top = -86.0
-offset_right = 40.0
-offset_bottom = -63.0
+offset_right = 67.0
+offset_bottom = -60.0
