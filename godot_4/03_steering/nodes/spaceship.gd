@@ -1,6 +1,6 @@
 extends Node2D
 
-const ACCELERATION := 50.0
+const ACCELERATION := 1.0
 const ANGULAR_ACCELERATION := 0.5
 var speed := 0.0
 var velocity := Vector2()
@@ -11,32 +11,47 @@ var angular_thrust := 0.0
 var orientation := 0.0
 var heading := Vector2(1,0)
 var vector_to_mouse :Vector2
-var fov_radius := 100
+var fov_radius := 300
 var fov_angle := deg_to_rad(90)
 var in_field_of_view := false
 @onready var sprite_2d = $Sprite2D as Sprite2D
+@onready var asteroid = $"../Asteroid"
 
-var is_mouse_control := false
+var is_mouse_control := true
+var vector_to_asteroid :=Vector2()
+var projection := Vector2()
+
 
 func _process(delta):
 	process_input()
 	$Label.text = str(orientation)
 	
+	vector_to_mouse = get_global_mouse_position() - position
 	if is_mouse_control:
-		vector_to_mouse = get_global_mouse_position() - position
 		var dot = heading.dot(vector_to_mouse.normalized())
 		var cross = heading.cross(vector_to_mouse.normalized())
-		var angle_to_mouse = atan2(cross, dot) * 10.0
+		var angle_to_mouse = atan2(cross, dot)
 		orientation += angle_to_mouse * delta
+		
+		in_field_of_view = false
+		if vector_to_mouse.length() < fov_radius:
+			if abs(angle_to_mouse) < fov_angle * 0.5:
+				in_field_of_view = true
+		
 	else:
 		angular_velocity += angular_thrust * delta
 		orientation += angular_velocity
 		angular_velocity *= 0.9
-		
+	
+	vector_to_asteroid = asteroid.position - position
 	heading = Vector2(cos(orientation), sin(orientation))
+	var W = vector_to_asteroid
+	var V = heading
+#	projection = W.dot(V) / V.length_squared() * V
+	projection = W.project(V)
 	
 	velocity += heading * thrust * delta
-	velocity *= 0.95
+	velocity -= velocity * delta
 	position += velocity
 	sprite_2d.rotation = orientation
 	queue_redraw()
@@ -56,6 +71,16 @@ func process_input():
 func _draw():
 	draw_vector(Vector2(0,0), velocity*20, Color.WHITE, 2) 
 	draw_vector(Vector2(0,0), heading*60, Color.GREEN, 2) 
+	draw_vector(Vector2(0,0), vector_to_asteroid, Color.BLUE, 2) 
+	
+	var distance = projection - vector_to_asteroid
+	if distance.length() < 60:
+		draw_vector(Vector2(0,0), projection, Color.RED, 2)
+	else:
+		draw_vector(Vector2(0,0), projection, Color.YELLOW, 2)
+	
+	draw_vector(vector_to_asteroid, distance, Color.WHITE, 2) 
+	
 	if in_field_of_view:
 		draw_vector(Vector2(0,0), vector_to_mouse, Color.BLUE, 2)
 	else:

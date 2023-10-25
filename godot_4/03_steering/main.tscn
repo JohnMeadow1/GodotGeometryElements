@@ -1,9 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqsbc30lactt5"]
+[gd_scene load_steps=6 format=3 uid="uid://bqsbc30lactt5"]
 
 [ext_resource type="PackedScene" uid="uid://bc333b8xb3r47" path="res://nodes/spaceship.tscn" id="1_pyx5i"]
+[ext_resource type="Texture2D" uid="uid://6dweb0segtvk" path="res://sprites/asteroid.png" id="2_uwi10"]
+
+[sub_resource type="Animation" id="Animation_ifn0g"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 63]
+}
+
+[sub_resource type="Animation" id="Animation_1q6au"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjrub"]
+_data = {
+"RESET": SubResource("Animation_1q6au"),
+"idle": SubResource("Animation_ifn0g")
+}
 
 [node name="Main" type="Node2D"]
 metadata/_edit_lock_ = true
 
 [node name="Spaceship" parent="." instance=ExtResource("1_pyx5i")]
 position = Vector2(338, 284)
+
+[node name="Asteroid" type="Sprite2D" parent="."]
+position = Vector2(465, 410)
+texture = ExtResource("2_uwi10")
+hframes = 8
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Asteroid"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_gjrub")
+}
