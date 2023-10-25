@@ -1,64 +1,66 @@
 extends Node2D
 
 const ACCELERATION := 300.0
-const ANGULAR_ACCELERATION := 0.5
-var speed := 0.0
+const ANGULAR_ACCELERATION := 5.5
 var velocity := Vector2()
 var angular_velocity := 0.0
 var thrust := 0.0
 var angular_thrust := 0.0
 
 var orientation := 0.0
-var heading := Vector2(1,0)
-var vector_to_mouse :Vector2
+var heading := Vector2(1, 0)
+
+
+var vector_to_mouse := Vector2(0,0)
 var fov_radius := 300
 var fov_angle := deg_to_rad(90)
-var in_field_of_view := false
+var is_in_fov := false
+
 @onready var sprite_2d = $Sprite2D as Sprite2D
 @onready var asteroid = $"../Asteroid"
 
-var is_mouse_control := true
-var vector_to_asteroid :=Vector2()
+var vector_to_asteroid := Vector2()
 var projection := Vector2()
-
+var is_mouse_control := false
 
 func _process(delta):
 	process_input()
 	$Label.text = str(orientation)
-	
 	vector_to_mouse = get_global_mouse_position() - position
+	vector_to_asteroid = asteroid.position - position
+
+	is_in_fov = false
+	if vector_to_mouse.length() < fov_radius:
+		if heading.dot(vector_to_mouse.normalized()) > cos(fov_angle * 0.5):
+			is_in_fov = true
+	
 	if is_mouse_control:
-		var dot = heading.dot(vector_to_mouse.normalized())
-		var cross = heading.cross(vector_to_mouse.normalized())
+		var dot = heading.dot(vector_to_mouse)
+		var cross = heading.cross(vector_to_mouse)
 		var angle_to_mouse = atan2(cross, dot)
 		orientation += angle_to_mouse * delta
-		
-		in_field_of_view = false
-		if vector_to_mouse.length() < fov_radius:
-			if abs(angle_to_mouse) < fov_angle * 0.5:
-				in_field_of_view = true
-		
 	else:
 		angular_velocity += angular_thrust * delta
-		orientation += angular_velocity
-		angular_velocity *= 0.9
-	
-	vector_to_asteroid = asteroid.position - position
+		orientation += angular_velocity * delta
+		angular_velocity -= angular_velocity * 3.0 * delta
+
 	heading = Vector2(cos(orientation), sin(orientation))
-	var W = vector_to_asteroid
-	var V = heading
+	projection = vector_to_asteroid.project(heading)
+	
+#	var W = vector_to_asteroid
+#	var V = heading
 #	projection = W.dot(V) / V.length_squared() * V
-	projection = W.project(V)
 	
 	velocity += heading * thrust * delta
-	velocity -= velocity * delta
 	position += velocity * delta
+	velocity -= velocity * delta
 	sprite_2d.rotation = orientation
 	queue_redraw()
 
 func process_input():
 	thrust = 0
 	angular_thrust = 0
+	is_mouse_control = false
 	if Input.is_action_pressed("RIGHT"):
 		angular_thrust = ANGULAR_ACCELERATION
 	if Input.is_action_pressed("LEFT"):
@@ -67,21 +69,24 @@ func process_input():
 		thrust = ACCELERATION
 	if Input.is_action_pressed("DOWN"):
 		thrust = -ACCELERATION
+		
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		is_mouse_control = true
 
 func _draw():
 	draw_vector(Vector2(0,0), velocity, Color.WHITE, 2) 
 	draw_vector(Vector2(0,0), heading*60, Color.GREEN, 2) 
-	draw_vector(Vector2(0,0), vector_to_asteroid, Color.BLUE, 2) 
 	
-	var distance = projection - vector_to_asteroid
-	if distance.length() < 60:
-		draw_vector(Vector2(0,0), projection, Color.RED, 2)
+	draw_vector(Vector2(0,0), vector_to_asteroid, Color(1,1,1,0.3), 1) 
+	draw_vector(Vector2(0,0), projection, Color.YELLOW, 1) 
+	var difference = projection - vector_to_asteroid
+	
+	if difference.length() < 60:
+		draw_vector(vector_to_asteroid, difference, Color.RED, 2) 
 	else:
-		draw_vector(Vector2(0,0), projection, Color.YELLOW, 2)
+		draw_vector(vector_to_asteroid, difference, Color.ORANGE, 1) 
 	
-	draw_vector(vector_to_asteroid, distance, Color.WHITE, 2) 
-	
-	if in_field_of_view:
+	if is_in_fov:
 		draw_vector(Vector2(0,0), vector_to_mouse, Color.BLUE, 2)
 	else:
 		draw_vector(Vector2(0,0), vector_to_mouse, Color.RED, 2) 

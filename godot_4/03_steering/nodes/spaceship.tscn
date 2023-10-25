@@ -15,3 +15,4 @@ texture = ExtResource("1_f3lal")
 offset_top = -86.0
 offset_right = 67.0
 offset_bottom = -60.0
+text = "text"
