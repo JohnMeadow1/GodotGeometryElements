@@ -1,20 +1,20 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=1]
 render_priority = 1
 flags_unshaded = true
 flags_do_not_receive_shadows = true
 params_billboard_mode = 1
 albedo_color = Color( 0, 1, 0, 1 )
 
-[sub_resource type="SphereMesh" id=1]
+[sub_resource type="SphereMesh" id=2]
 radius = 0.1
 height = 0.2
 radial_segments = 12
 rings = 6
 
 [node name="marker" type="MeshInstance"]
-material_override = SubResource( 2 )
+material_override = SubResource( 1 )
 cast_shadow = 0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null

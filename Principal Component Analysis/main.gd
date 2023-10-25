@@ -36,7 +36,8 @@ func _ready():
 		new_marker.translation = vertex_array[i]
 
 	calculate_mean()
-	
+	print ("Mean: ")
+	print (mean)
 	# add marker indicating mean position
 	var new_marker = marker.instance()
 	$shape.add_child(new_marker)
@@ -80,6 +81,7 @@ func calculate_covariance_matrix():
 	var vector_z = Vector3.ZERO
 	
 	for i in vertex_array.size():
+		print (vertex_array[i])
 		vector_x.x += pow(vertex_array[i].x - mean.x, 2)
 		vector_x.y += (vertex_array[i].x - mean.x) * (vertex_array[i].y - mean.y)
 		vector_x.z += (vertex_array[i].x - mean.x) * (vertex_array[i].z - mean.z)

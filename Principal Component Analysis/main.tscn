@@ -162,6 +162,7 @@ value = 0.05
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="toggled" from="UI/Wireframe" to="." method="_on_Wireframe_toggled"]
 [connection signal="toggled" from="UI/Vertices" to="." method="_on_Vertices_toggled"]
 [connection signal="toggled" from="UI/Model_faces" to="." method="_on_Model_faces_toggled"]
