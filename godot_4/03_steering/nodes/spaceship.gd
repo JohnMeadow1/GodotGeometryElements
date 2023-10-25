@@ -1,6 +1,6 @@
 extends Node2D
 
-const ACCELERATION := 100.0
+const ACCELERATION := 50.0
 const ANGULAR_ACCELERATION := 0.5
 var speed := 0.0
 var velocity := Vector2()
@@ -18,12 +18,19 @@ var in_field_of_view := false
 
 func _process(delta):
 	process_input()
+	
+	vector_to_mouse = get_global_mouse_position() - position
+	var angle_to_mouse = atan2(vector_to_mouse.y, vector_to_mouse.x)
+	orientation = lerp(orientation, angle_to_mouse, 0.1)
+	
 	$Label.text = str(orientation)
-	angular_velocity += angular_thrust * delta
-	orientation += angular_velocity
+#	angular_velocity += angular_thrust * delta
+#	orientation += angular_velocity
+	angular_velocity *= 0.9
 	heading = Vector2(cos(orientation), sin(orientation))
 	
 	velocity += heading * thrust * delta
+	velocity *= 0.95
 	position += velocity
 	sprite_2d.rotation = orientation
 	queue_redraw()
@@ -41,7 +48,7 @@ func process_input():
 		thrust = -ACCELERATION
 
 func _draw():
-	draw_vector(Vector2(0,0), velocity, Color(1,1,1), 2) 
+	draw_vector(Vector2(0,0), velocity*20, Color.WHITE, 2) 
 	draw_vector(Vector2(0,0), heading*60, Color.GREEN, 2) 
 	if in_field_of_view:
 		draw_vector(Vector2(0,0), vector_to_mouse, Color.BLUE, 2)
@@ -86,8 +93,6 @@ func draw_circle_arc(radius, angle_from, angle_to):
 
 
 
-#	orientation += angular_velocity
-#	angular_velocity *= 0.95
 #	vector_to_mouse = get_global_mouse_position() - position
 #	heading = Vector2( cos(orientation), sin(orientation) )
 ##	$Label.text = str(heading.dot(vector_to_mouse.normalized())," ",fov_angle)
