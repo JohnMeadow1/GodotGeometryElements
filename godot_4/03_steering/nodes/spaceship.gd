@@ -16,17 +16,23 @@ var fov_angle := deg_to_rad(90)
 var in_field_of_view := false
 @onready var sprite_2d = $Sprite2D as Sprite2D
 
+var is_mouse_control := false
+
 func _process(delta):
 	process_input()
-	
-	vector_to_mouse = get_global_mouse_position() - position
-	var angle_to_mouse = atan2(vector_to_mouse.y, vector_to_mouse.x)
-	orientation = lerp(orientation, angle_to_mouse, 0.1)
-	
 	$Label.text = str(orientation)
-#	angular_velocity += angular_thrust * delta
-#	orientation += angular_velocity
-	angular_velocity *= 0.9
+	
+	if is_mouse_control:
+		vector_to_mouse = get_global_mouse_position() - position
+		var dot = heading.dot(vector_to_mouse.normalized())
+		var cross = heading.cross(vector_to_mouse.normalized())
+		var angle_to_mouse = atan2(cross, dot) * 10.0
+		orientation += angle_to_mouse * delta
+	else:
+		angular_velocity += angular_thrust * delta
+		orientation += angular_velocity
+		angular_velocity *= 0.9
+		
 	heading = Vector2(cos(orientation), sin(orientation))
 	
 	velocity += heading * thrust * delta
