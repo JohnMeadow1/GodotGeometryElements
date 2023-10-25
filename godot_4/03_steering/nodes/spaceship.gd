@@ -1,6 +1,6 @@
 extends Node2D
 
-const ACCELERATION := 1.0
+const ACCELERATION := 300.0
 const ANGULAR_ACCELERATION := 0.5
 var speed := 0.0
 var velocity := Vector2()
@@ -52,7 +52,7 @@ func _process(delta):
 	
 	velocity += heading * thrust * delta
 	velocity -= velocity * delta
-	position += velocity
+	position += velocity * delta
 	sprite_2d.rotation = orientation
 	queue_redraw()
 
@@ -69,7 +69,7 @@ func process_input():
 		thrust = -ACCELERATION
 
 func _draw():
-	draw_vector(Vector2(0,0), velocity*20, Color.WHITE, 2) 
+	draw_vector(Vector2(0,0), velocity, Color.WHITE, 2) 
 	draw_vector(Vector2(0,0), heading*60, Color.GREEN, 2) 
 	draw_vector(Vector2(0,0), vector_to_asteroid, Color.BLUE, 2) 
 	
