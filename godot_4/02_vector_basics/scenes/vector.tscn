@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/vector.gd" type="Script" id=1]
+
+
+[node name="vector_1" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform3D" ]
+__meta__ = {
+"_edit_group_": true
+}
+initial_vector = Vector2( 0, 10 )
+vector_color = Color( 1, 0, 0, 1 )
+vector_width = 5
+
+[node name="value" type="Label" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0.620838 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 5.0
+offset_top = 105.0
+offset_right = 33.0
+offset_bottom = 136.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = true
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 12
+size_flags_vertical = 12
+text = " 0.0
+10.0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags", "Visibility" ]
+
+[node name="magnitude" type="Label" parent="." index="1"]
+
+modulate = Color( 1, 1, 1, 0.620838 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 50.0
+offset_right = 36.0
+offset_bottom = 64.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "10.0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "Rect", "Size Flags", "Visibility" ]
+
+

@@ -1,0 +1,150 @@
+[gd_scene load_steps=7 format=3 uid="uid://duvw3cek52e1p"]
+
+[ext_resource type="Script" path="res://main.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/point.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/vector.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/vector_addition.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/dot_product.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/projection.tscn" id="6"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1")
+
+[node name="world" type="Node" parent="."]
+
+[node name="point_1" parent="world" instance=ExtResource("2")]
+position = Vector2(-100, -200)
+
+[node name="point_2" parent="world" instance=ExtResource("2")]
+position = Vector2(100, -200)
+
+[node name="vector_1" parent="world" instance=ExtResource("3")]
+initial_vector = Vector2(10, 0)
+
+[node name="vector_2" parent="world" instance=ExtResource("3")]
+initial_vector = Vector2(5, -5)
+vector_color = Color(0, 1, 0.0859375, 1)
+
+[node name="GUI_layer" type="CanvasLayer" parent="."]
+
+[node name="Margin" type="MarginContainer" parent="GUI_layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_right = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBox" type="HBoxContainer" parent="GUI_layer/Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="VBox" type="VBoxContainer" parent="GUI_layer/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBox" type="HBoxContainer" parent="GUI_layer/Margin/HBox/VBox"]
+layout_mode = 2
+
+[node name="VBox2" type="VBoxContainer" parent="GUI_layer/Margin/HBox/VBox/HBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="direction" type="Label" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "direction"
+
+[node name="magnitude" type="Label" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "magnitude"
+
+[node name="vector" type="Label" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "vector"
+
+[node name="VBox" type="VBoxContainer" parent="GUI_layer/Margin/HBox/VBox/HBox"]
+layout_mode = 2
+
+[node name="direction_box" type="HBoxContainer" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox"]
+layout_mode = 2
+
+[node name="x" type="SpinBox" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox/direction_box"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+editable = false
+
+[node name="y" type="SpinBox" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox/direction_box"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+editable = false
+
+[node name="magnitude_box" type="HBoxContainer" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox"]
+layout_mode = 2
+
+[node name="magnitude" type="SpinBox" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox/magnitude_box"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = 1.0
+max_value = 1000.0
+step = 0.1
+value = 1.0
+
+[node name="vector" type="HBoxContainer" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox"]
+layout_mode = 2
+
+[node name="x" type="SpinBox" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox/vector"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1000.0
+max_value = 1000.0
+step = 0.1
+
+[node name="y" type="SpinBox" parent="GUI_layer/Margin/HBox/VBox/HBox/VBox/vector"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1000.0
+max_value = 1000.0
+step = 0.1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="vector_addition" parent="." instance=ExtResource("4")]
+visible = false
+position = Vector2(-200, 100)
+
+[node name="dot_product" parent="." instance=ExtResource("5")]
+visible = false
+position = Vector2(200, 100)
+
+[node name="projection" parent="." instance=ExtResource("6")]
+position = Vector2(0, 0)
+
+[connection signal="value_changed" from="GUI_layer/Margin/HBox/VBox/HBox/VBox/magnitude_box/magnitude" to="." method="_on_magnitude_value_changed"]
+[connection signal="value_changed" from="GUI_layer/Margin/HBox/VBox/HBox/VBox/vector/x" to="." method="_on_x_value_changed"]
+[connection signal="value_changed" from="GUI_layer/Margin/HBox/VBox/HBox/VBox/vector/y" to="." method="_on_y_value_changed"]

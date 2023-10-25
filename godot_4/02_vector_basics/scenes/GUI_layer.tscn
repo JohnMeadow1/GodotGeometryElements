@@ -1,0 +1,377 @@
+[gd_scene format=2]
+
+[node name="GUI_layer" type="CanvasLayer"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Margin" type="MarginContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_right = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="HBox" type="HBoxContainer" parent="Margin" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_right = 1004.0
+offset_bottom = 80.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 772.0
+offset_right = 996.0
+offset_bottom = 80.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HBox" type="HBoxContainer" parent="Margin/HBox/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 224.0
+offset_bottom = 80.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="VBox2" type="VBoxContainer" parent="Margin/HBox/VBox/HBox" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 68.0
+offset_bottom = 80.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="direction" type="Label" parent="Margin/HBox/VBox/HBox/VBox2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 68.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "direction"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags" ]
+
+[node name="magnitude" type="Label" parent="Margin/HBox/VBox/HBox/VBox2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "magnitude"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags" ]
+
+[node name="vector" type="Label" parent="Margin/HBox/VBox/HBox/VBox2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 56.0
+offset_right = 68.0
+offset_bottom = 80.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "vector"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Size Flags" ]
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/VBox/HBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 72.0
+offset_right = 224.0
+offset_bottom = 80.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="direction_box" type="HBoxContainer" parent="Margin/HBox/VBox/HBox/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 152.0
+offset_bottom = 24.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="x" type="SpinBox" parent="Margin/HBox/VBox/HBox/VBox/direction_box" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 74.0
+offset_bottom = 24.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = false
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="y" type="SpinBox" parent="Margin/HBox/VBox/HBox/VBox/direction_box" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 78.0
+offset_right = 152.0
+offset_bottom = 24.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = false
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="magnitude_box" type="HBoxContainer" parent="Margin/HBox/VBox/HBox/VBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 28.0
+offset_right = 152.0
+offset_bottom = 52.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="magnitude" type="SpinBox" parent="Margin/HBox/VBox/HBox/VBox/magnitude_box" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 74.0
+offset_bottom = 24.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = 1.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Margin", "Mouse", "Rect", "Size Flags" ]
+
+[node name="vector" type="HBoxContainer" parent="Margin/HBox/VBox/HBox/VBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 56.0
+offset_right = 152.0
+offset_bottom = 80.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="x" type="SpinBox" parent="Margin/HBox/VBox/HBox/VBox/vector" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 74.0
+offset_bottom = 24.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1000.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="y" type="SpinBox" parent="Margin/HBox/VBox/HBox/VBox/vector" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 78.0
+offset_right = 152.0
+offset_bottom = 24.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+min_value = -1000.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+_sections_unfolded = [ "Size Flags" ]
+
+

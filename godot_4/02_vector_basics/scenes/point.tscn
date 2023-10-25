@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/point.gd" type="Script" id=1]
+
+
+[node name="point_1" type="Node2D"]
+
+position = Vector2( 472.909, 230.138 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="label" type="Label" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.40302
+offset_top = -20.628
+offset_right = 47.403
+offset_bottom = -6.62799
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "472.9, 230.1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+
