@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bqsbc30lactt5"]
+
+[ext_resource type="PackedScene" uid="uid://bc333b8xb3r47" path="res://nodes/spaceship.tscn" id="1_pyx5i"]
+[ext_resource type="PackedScene" uid="uid://devqo231h8h2k" path="res://nodes/asteroid.tscn" id="2_0xm2m"]
+
+[node name="World" type="Node" unique_id=1161618690]
+
+[node name="Asteroid" parent="." unique_id=1187812932 instance=ExtResource("2_0xm2m")]
+position = Vector2(540, 437)
+
+[node name="Spaceship" parent="." unique_id=1617966128 instance=ExtResource("1_pyx5i")]
+position = Vector2(283, 327)

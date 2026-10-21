@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bc333b8xb3r47"]
+
+[ext_resource type="Script" uid="uid://ch8c061c7hf6e" path="res://nodes/spaceship.gd" id="1_7njk3"]
+[ext_resource type="Texture2D" uid="uid://c33rrdb523fwq" path="res://sprites/fighter.png" id="1_f3lal"]
+
+[node name="Spaceship" type="Node2D" unique_id=421134764]
+script = ExtResource("1_7njk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1281487570]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_f3lal")
+
+[node name="Label" type="Label" parent="." unique_id=352643836]
+offset_top = -86.0
+offset_right = 40.0
+offset_bottom = -63.0
